@@ -5,12 +5,16 @@ namespace MySpot.Core.Entities;
 
 public class WeeklyParkingSpot
 {
-    public ParkingSpotId Id { get; }
-    public Week Week { get; private set; }
-    public ParkingSpotName Name { get; private set; }
+    public ParkingSpotId Id { get; } = default!;
+    public Week Week { get; private set; } = default!;
+    public ParkingSpotName Name { get; private set; } = default!;
     public IEnumerable<Reservation> Reservations => _reservations;
 
     private readonly HashSet<Reservation> _reservations = new();
+
+    private WeeklyParkingSpot()
+    {
+    }
 
     public WeeklyParkingSpot(Guid id, Week week, string name)
     {

@@ -2,7 +2,7 @@
 using MySpot.Application.Commands;
 using MySpot.Application.Services;
 using MySpot.Core.Repositories;
-using MySpot.Infrastructure.Repository;
+using MySpot.Infrastructure.DAL.Repository;
 using MySpot.Tests.Unit.Shared;
 
 namespace MySpot.Tests.Unit.Services;

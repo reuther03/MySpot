@@ -8,7 +8,7 @@ public static class Extensions
     public static IServiceCollection AddApplication(this IServiceCollection service)
     {
         service
-            .AddSingleton<IReservationsService, ReservationsService>();
+            .AddScoped<IReservationsService, ReservationsService>();
 
 
         return service;
