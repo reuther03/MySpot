@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MySpot.Core.Entities;
 
-namespace MySpot.Infrastructure;
+namespace MySpot.Infrastructure.DAL;
 
 internal sealed class MySpotDbContext : DbContext
 {
