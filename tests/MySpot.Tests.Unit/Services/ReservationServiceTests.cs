@@ -10,14 +10,17 @@ namespace MySpot.Tests.Unit.Services;
 public class ReservationServiceTests
 {
     [Fact]
-    public void given_valid_command_create_should_add_reservation()
+    public async Task given_valid_command_create_should_add_reservation()
      {
         //ARRANGE
-        var command = new CreateReservation(Guid.Parse("00000000-0000-0000-0000-000000000001"),
-            Guid.NewGuid(), "John Doe", "abc-123", DateTime.UtcNow.AddDays(1));
-
+        //%TODO: zoba to
+            // nie dziala nie wiem dlaczego
+            // var command = new CreateReservation(Guid.Parse("00000000-0000-0000-0000-000000000001"),
+            //     Guid.NewGuid(), "John Doe", "abc-123", DateTime.UtcNow.AddDays(1));
+         var command = new CreateReservation(Guid.Parse("00000000-0000-0000-0000-000000000001"),
+             Guid.NewGuid(), "John Doe", "abc-123", _clock.Current().AddDays(1));
         //ACT
-        var reservationId = _reservationsService.Create(command);
+        var reservationId = await _reservationsService.CreateAsync(command);
 
         //ASSERT
         reservationId.Should().NotBeNull();
@@ -25,14 +28,14 @@ public class ReservationServiceTests
     }
 
     [Fact]
-    public void given_invalid_parking_spot_id_create_should_fail()
+    public async Task given_invalid_parking_spot_id_create_should_fail()
     {
         //ARRANGE
         var command = new CreateReservation(Guid.Parse("00000000-0000-0000-0000-000000000011"),
             Guid.NewGuid(), "John Doe", "abc-123", DateTime.UtcNow.AddDays(1));
 
         //ACT
-        var reservationId = _reservationsService.Create(command);
+        var reservationId = await _reservationsService.CreateAsync(command);
 
         //ASSERT
         reservationId.Should().BeNull();
