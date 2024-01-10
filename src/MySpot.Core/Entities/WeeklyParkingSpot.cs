@@ -10,7 +10,7 @@ public class WeeklyParkingSpot
     public ParkingSpotName Name { get; private set; } = default!;
     public IEnumerable<Reservation> Reservations => _reservations;
 
-    private readonly HashSet<Reservation> _reservations = new();
+    private readonly HashSet<Reservation> _reservations = [];
 
     private WeeklyParkingSpot()
     {

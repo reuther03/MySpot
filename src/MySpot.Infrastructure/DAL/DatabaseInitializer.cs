@@ -39,7 +39,6 @@ internal sealed class DatabaseInitializer : IHostedService
         };
         await dbContext.WeeklyParkingSpots.AddRangeAsync(weeklyParkingSpots, cancellationToken);
         await dbContext.SaveChangesAsync(cancellationToken);
-
     }
 
     public Task StopAsync(CancellationToken cancellationToken) => Task.CompletedTask;
