@@ -2,11 +2,10 @@
 
 namespace MySpot.Core.Entities;
 
-public class Reservation
+public abstract class Reservation
 {
     public ReservationId Id { get; } = default!;
-    public EmployeeName EmployeeName { get; private set; } = default!;
-    public LicencePlate LicencePlate { get; private set; } = default!;
+    public Capacity Capacity { get; private set; } = default!;
     public Date Date { get; private set; } = default!;
 
     /// <summary>
@@ -15,18 +14,14 @@ public class Reservation
     /// <item><description>EF Core needs parameterless constructor</description></item>
     /// </list>
     /// </summary>
-    private Reservation()
+    protected Reservation()
     {
     }
 
-    public Reservation(ReservationId id, EmployeeName employeeName, LicencePlate licencePlate, Date date)
+    protected Reservation(ReservationId id, Capacity capacity, Date date)
     {
         Id = id;
-        EmployeeName = employeeName;
-        LicencePlate = licencePlate;
+        Capacity = capacity;
         Date = date;
     }
-
-    public void ChangeLicencePlate(LicencePlate licencePlate)
-        => LicencePlate = licencePlate;
 }

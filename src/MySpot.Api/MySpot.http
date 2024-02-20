@@ -1,10 +1,10 @@
 @url = http://localhost:5000
 
 ###
-GET {{url}}/reservations/3f98e6da-80fb-4249-b8da-0a33e578cadd
+GET {{url}}/parking-spot
 
 ###
-POST {{url}}/reservations
+POST {{url}}/parking-spot
 Content-Type: application/json
 
 {
@@ -15,4 +15,21 @@ Content-Type: application/json
 }
 
 ###
-GET {{url}}/reservations/
+GET {{url}}/parking-spot
+###
+GET {{url}}/SignUp/jwt
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlZmZjMjgwZS05NmExLTQzNDktYjQ5OC1jYjMwOTM0NTA2ZTEiLCJuYmYiOjE3MDgxODA0MDksImV4cCI6MTcwODE4MTAwOSwiaXNzIjoibXlzcG90LWlzc3VlciIsImF1ZCI6Im15c3BvdC1hdWRpZW5jZSJ9.X5Kj9h3qBs_s3uDUb4WM_h0PHbJkrvOkPFMtO6TCjVU
+###
+GET {{url}}/SignUp/secret
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOGM5YWJjOS03NWNhLTQ4MmMtYWQ4OS1kYmNmZjYwMjI4MzIiLCJ1c2VyX2lkIjoiYjhjOWFiYzktNzVjYS00ODJjLWFkODktZGJjZmY2MDIyODMyIiwibmJmIjoxNzA4MTgxMDU2LCJleHAiOjE3MDgxODE2NTYsImlzcyI6Im15c3BvdC1pc3N1ZXIiLCJhdWQiOiJteXNwb3QtYXVkaWVuY2UifQ.PlYZMTO0Vqgx5WQ2VxCQRppp0WqSRtsXeimICjMYU-8
+###
+POST {{url}}/SignUp
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "username": "admin",
+    "Password": "admin123",
+    "fullName": "admin admin",
+    "role": "Admin"
+}

@@ -16,7 +16,7 @@ public record ReservationId
         Value = value;
     }
 
-    private static ReservationId Create() => new(Guid.NewGuid());
+    public static ReservationId Create() => new(Guid.NewGuid());
 
     public static implicit operator Guid(ReservationId date)
         => date.Value;
